@@ -20,7 +20,7 @@ type ValidationProblem struct {
 	ValidationErrors []ValidationError `json:"validationerrors,omitempty"` // a list of the validation errors that occurred
 }
 
-func (problem ValidationProblem) WithType(t string) ValidationProblem {
+func (problem *ValidationProblem) WithType(t string) *ValidationProblem {
 	problem.Type = t
 	return problem
 }
@@ -43,26 +43,6 @@ func (problem *ValidationProblem) WithDetail(detail string) *ValidationProblem {
 func (problem *ValidationProblem) WithInstance(instance string) *ValidationProblem {
 	problem.Instance = instance
 	return problem
-}
-
-func (problem *ValidationProblem) ProblemType() string {
-	return problem.Type
-}
-
-func (problem *ValidationProblem) ProblemTitle() string {
-	return problem.Title
-}
-
-func (problem *ValidationProblem) ProblemStatus() int {
-	return problem.Status
-}
-
-func (problem *ValidationProblem) ProblemDetail() string {
-	return problem.Detail
-}
-
-func (problem *ValidationProblem) ProblemInstance() string {
-	return problem.Instance
 }
 
 func FromValidationErrors(validationErrors validator.ValidationErrors) ValidationProblem {

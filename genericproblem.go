@@ -8,7 +8,7 @@ type GenericProblem struct {
 	Instance string `json:"instance,omitempty"` // A URI reference that identifies the specific ocurrence. Does not need to derefrence to something
 }
 
-func (problem GenericProblem) WithType(t string) GenericProblem {
+func (problem *GenericProblem) WithType(t string) *GenericProblem {
 	problem.Type = t
 	return problem
 }
