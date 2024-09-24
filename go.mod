@@ -1,6 +1,6 @@
 module github.com/vqcomms/problemdetails
 
-go 1.22
+go 1.23
 
 require github.com/go-playground/validator/v10 v10.9.0
 
